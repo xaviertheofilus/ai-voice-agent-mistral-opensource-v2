@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Voice Agent - Optimized</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-microphone-alt"></i>
+                    <h1>AI Voice Agent</h1>
+                </div>
+                <div class="status-indicators">
+                    <div id="connectionStatus" class="status-indicator">
+                        <i class="fas fa-circle"></i>
+                        <span>Connecting...</span>
+                    </div>
+                    <div id="systemStatus" class="status-indicator">
+                        <i class="fas fa-cog"></i>
+                        <span>Loading...</span>
+                    </div>
+                </div>
+            </div>
+            <p class="subtitle">Berinteraksi dengan AI melalui suara dalam Bahasa Indonesia atau Inggris dengan teknologi real-time</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h3><i class="fas fa-comments"></i> Percakapan</h3>
+                    <div class="chat-controls">
+                        <button id="clearChatBtn" class="btn-icon" title="Clear Chat">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                        <button id="exportChatBtn" class="btn-icon" title="Export Chat">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="welcome-message">
+                        <div class="welcome-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>Selamat datang di AI Voice Agent!</h4>
+                        <p>Upload dokumen PDF atau template CSV, lalu mulai berbicara untuk berinteraksi dengan AI.</p>
+                    </div>
+                </div>
+                
+                <div class="chat-input-section">
+                    <div class="voice-controls">
+                        <button id="recordButton" class="record-btn">
+                            <div class="record-icon">
+                                <i class="fas fa-microphone"></i>
+                            </div>
+                            <div class="record-text">
+                                <span id="recordText">Mulai Rekam</span>
+                                <small id="recordStatus">Tekan untuk berbicara</small>
+                            </div>
+                        </button>
+                        
+                        <div class="voice-visualizer">
+                            <div class="audio-bars" id="audioBars">
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-input-section">
+                        <div class="input-group">
+                            <input type="text" id="textInput" placeholder="Atau ketik pertanyaan Anda di sini...">
+                            <button id="sendTextBtn" class="btn-send">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="side-panel">
+                <div class="panel-section">
+                    <h3><i class="fas fa-file-upload"></i> Upload Dokumen</h3>
+                    
+                    <div class="upload-area" id="pdfUploadArea">
+                        <div class="upload-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="upload-text">
+                            <strong>Upload PDF</strong>
+                            <small>Drag & drop atau klik untuk memilih</small>
+                        </div>
+                        <input type="file" id="pdfUpload" accept=".pdf" hidden>
+                    </div>
+                    
+                    <div class="upload-area" id="csvUploadArea">
+                        <div class="upload-icon">
+                            <i class="fas fa-file-csv"></i>
+                        </div>
+                        <div class="upload-text">
+                            <strong>Upload Template CSV</strong>
+                            <small>Format: question, answer</small>
+                        </div>
+                        <input type="file" id="csvUpload" accept=".csv" hidden>
+                    </div>
+                    
+                    <div id="uploadStatus" class="upload-status"></div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3><i class="fas fa-info-circle"></i> Status Sistem</h3>
+                    <div class="system-info" id="systemInfo">
+                        <div class="info-item">
+                            <span class="info-label">STT Engine:</span>
+                            <span class="info-value" id="sttStatus">Loading...</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">TTS Engine:</span>
+                            <span class="info-value" id="ttsStatus">Loading...</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Documents:</span>
+                            <span class="info-value" id="docStatus">Loading...</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Templates:</span>
+                            <span class="info-value" id="templateStatus">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                    <div class="quick-actions">
+                        <button id="downloadBtn" class="action-btn">
+                            <i class="fas fa-download"></i>
+                            <span>Download JSON</span>
+                        </button>
+                        <button id="refreshBtn" class="action-btn">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Refresh System</span>
+                        </button>
+                        <button id="helpBtn" class="action-btn">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Help</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="processingOverlay" class="processing-overlay hidden">
+        <div class="processing-content">
+            <div class="processing-spinner"></div>
+            <div class="processing-text">
+                <h4 id="processingTitle">Memproses...</h4>
+                <p id="processingDescription">Mohon tunggu sebentar</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="helpModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-question-circle"></i> Panduan Penggunaan</h3>
+                <button class="modal-close" id="helpModalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="help-section">
+                    <h4><i class="fas fa-microphone"></i> Voice Input</h4>
+                    <ul>
+                        <li>Klik tombol "Mulai Rekam" dan berbicara dengan jelas</li>
+                        <li>Sistem mendukung Bahasa Indonesia dan Inggris</li>
+                        <li>Transcription akan muncul secara real-time</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h4><i class="fas fa-file-upload"></i> Document Upload</h4>
+                    <ul>
+                        <li>Upload file PDF untuk knowledge base</li>
+                        <li>Upload CSV dengan format: question, answer untuk template</li>
+                        <li>Drag & drop atau klik area upload</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h4><i class="fas fa-download"></i> Export Data</h4>
+                    <ul>
+                        <li>Download percakapan dalam format JSON</li>
+                        <li>Data termasuk transcript dan responses</li>
+                        <li>Dapat digunakan untuk analisis lebih lanjut</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h4><i class="fas fa-cog"></i> Features</h4>
+                    <ul>
+                        <li>Real-time transcription dengan faster-whisper</li>
+                        <li>Natural TTS dengan multiple engines</li>
+                        <li>Template matching untuk response cepat</li>
+                        <li>RAG-based knowledge retrieval</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/script.js"></script>
+</body>
+</html>
