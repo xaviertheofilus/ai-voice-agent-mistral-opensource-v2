@@ -1,8 +1,11 @@
-##### AI Voice Agent - Intelligent Voice Assistant System
+## AI Voice Agent - Intelligent Voice Assistant System
 
 ## Project Description
 
 AI Voice Agent is an intelligent voice assistant application that enables interaction through voice and text in both Indonesian and English. The system is equipped with speech-to-text (STT), text-to-speech (TTS), template matching, and RAG (Retrieval Augmented Generation) capabilities to provide accurate and natural responses.
+
+<img width="1600" height="832" alt="image" src="https://github.com/user-attachments/assets/71ffddb1-3087-4ce8-814e-539c11125aa0" />
+<img width="1897" height="589" alt="image" src="https://github.com/user-attachments/assets/414a00a0-afbd-4d7c-88e3-3f852fc2ab60" />
 
 ## Key Features
 
