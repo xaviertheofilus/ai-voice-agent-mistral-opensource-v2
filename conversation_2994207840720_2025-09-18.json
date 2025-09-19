@@ -30,8 +30,8 @@
     {
       "id": 5,
       "timestamp": "2025-09-19T06:34:39.686934",
-      "user_input": "Nama saya Ahmad Rizki, email ahmad.rizki@email.com, nomor 08123456789",
-      "assistant_response": "Terima kasih, Pak Ahmad. Reservasi untuk The Legian Seminyak telah saya buat untuk 25-28 September. Detail konfirmasi telah dikirim ke email Anda. Apakah ada yang else yang bisa saya bantu?"
+      "user_input": "Nama saya theo, email theoxx@gmail.com, nomor 08120000000",
+      "assistant_response": "Terima kasih, Pak Theo. Reservasi untuk The Legian Seminyak telah saya buat untuk 25-28 September. Detail konfirmasi telah dikirim ke email Anda. Apakah ada yang else yang bisa saya bantu?"
     },
     {
       "id": 6,
@@ -43,7 +43,8 @@
       "id": 7,
       "timestamp": "2025-09-19T06:35:53.036583",
       "user_input": "Terima kasih banyak atas bantuannya!",
-      "assistant_response": "Sama-sama, Pak Ahmad. Selamat menikmati liburan di Bali! Jika perlu bantuan lagi, jangan ragu untuk menghubungi kami."
+      "assistant_response": "Sama-sama, Pak Theo. Selamat menikmati liburan di Bali! Jika perlu bantuan lagi, jangan ragu untuk menghubungi kami."
     }
   ]
+
 }
